@@ -73,13 +73,16 @@
   .sec-h{font-size:clamp(24px,4vw,34px);font-weight:800;letter-spacing:-.8px;margin:0 0 10px}
   .sec-sub{color:var(--t2);max-width:54ch;margin:0 0 34px}
 
-  /* feature: lead split */
-  .feat-split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-  .feat-split.rev .copy{order:2}
-  .feat-split .copy h3{font-size:24px;font-weight:700;letter-spacing:-.4px;margin:0 0 10px}
-  .feat-split .copy p{color:var(--t2);margin:0;max-width:42ch}
+  /* screens gallery */
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start;margin-top:36px}
+  .shots figure{margin:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .shots figure.lift{transform:translateY(-24px)}
+  .shots .phone{width:100%;max-width:236px}
+  .shots figcaption{margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:3px}
+  .shots figcaption b{font-size:16px;font-weight:700;letter-spacing:-.3px}
+  .shots figcaption .desc{color:var(--t2);font-size:13.5px;max-width:30ch;line-height:1.55}
   .feat-pill{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);
-    background:var(--accent-soft);padding:5px 11px;border-radius:var(--r-pill);margin-bottom:14px}
+    background:var(--accent-soft);padding:5px 11px;border-radius:var(--r-pill);margin-bottom:8px}
 
   /* feature grid (smaller) */
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
@@ -122,10 +125,10 @@
     .hero-cta{justify-content:center}
     .lead{margin-left:auto;margin-right:auto}
     .phone.tilt{transform:none}
-    .feat-split{grid-template-columns:1fr;gap:22px}
-    .feat-split.rev .copy{order:0}
-    .feat-split .phone{order:-1}
-    .feat-split .copy p{max-width:none}
+    .shots{grid-template-columns:1fr;gap:46px}
+    .shots figure.lift{transform:none}
+    .shots .phone{max-width:250px}
+    .shots figcaption .desc{max-width:34ch}
     .grid3{grid-template-columns:1fr}
     .dl-grid{grid-template-columns:1fr}
     .nav-cta .ghost.hide-sm{display:none}
@@ -166,39 +169,36 @@
 
 <section id="features">
   <div class="wrap">
-    <div class="feat-split reveal">
-      <div class="copy">
-        <span class="feat-pill">フル再生</span>
-        <h3>広告なしで、最後まで。</h3>
-        <p>生ストリームを直接取得するので、曲やBGMの途中で広告が挟まりません。先頭だけの試聴ではなく、まるごと再生します。</p>
-      </div>
-      <div class="phone"><img src="assets/shot-player.jpg" width="600" height="1300" alt="再生中の画面" loading="lazy" /></div>
-    </div>
-  </div>
-</section>
+    <h2 class="sec-h reveal">画面はこんな感じ</h2>
+    <p class="sec-sub reveal">よく使う3つの画面。広告なしのフル再生、予測変換つき検索、自分だけのライブラリ。</p>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="feat-split rev reveal">
-      <div class="copy">
-        <span class="feat-pill">検索</span>
-        <h3>打つそばから、候補が出る。</h3>
-        <p>入力に合わせて候補をその場で表示。関連する曲や動画もまとめて出て、「さらに表示」でどんどん深掘りできます。</p>
-      </div>
-      <div class="phone"><img src="assets/shot-search.jpg" width="600" height="1300" alt="検索の予測変換" loading="lazy" /></div>
-    </div>
-  </div>
-</section>
+    <div class="shots">
+      <figure class="reveal">
+        <div class="phone"><img src="assets/shot-player.jpg" width="600" height="1300" alt="再生中の画面" loading="lazy" /></div>
+        <figcaption>
+          <span class="feat-pill">フル再生</span>
+          <b>広告なしで、最後まで。</b>
+          <span class="desc">生ストリームを直接取得。曲やBGMの途中で広告が挟まりません。</span>
+        </figcaption>
+      </figure>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="feat-split reveal">
-      <div class="copy">
-        <span class="feat-pill">ライブラリ</span>
-        <h3>お気に入りも、自分だけのプレイリストも。</h3>
-        <p>端末内に保存するので、ログインなしでもオフラインで開けます。再生中の曲からワンタップで追加。URLを貼って取り込むこともできます。</p>
-      </div>
-      <div class="phone"><img src="assets/shot-library.jpg" width="600" height="1300" alt="ライブラリ画面" loading="lazy" /></div>
+      <figure class="reveal lift">
+        <div class="phone"><img src="assets/shot-search.jpg" width="600" height="1300" alt="検索の予測変換" loading="lazy" /></div>
+        <figcaption>
+          <span class="feat-pill">検索</span>
+          <b>打つそばから、候補が出る。</b>
+          <span class="desc">入力に合わせて候補をその場で表示。関連する曲や動画もまとめて。</span>
+        </figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="phone"><img src="assets/shot-library.jpg" width="600" height="1300" alt="ライブラリ画面" loading="lazy" /></div>
+        <figcaption>
+          <span class="feat-pill">ライブラリ</span>
+          <b>お気に入りもプレイリストも。</b>
+          <span class="desc">端末内に保存。ログインなしでもオフラインで開けます。</span>
+        </figcaption>
+      </figure>
     </div>
 
     <div class="grid3">

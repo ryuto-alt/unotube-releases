@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>UnoTube - YouTube Music と YouTube を1つに</title>
+<meta name="description" content="UnoTube は YouTube Music と YouTube を1つにした自作の音楽プレイヤー。広告なしのフル再生、予測変換つき検索、お気に入りとプレイリスト。Android / iOS。" />
+<meta property="og:title" content="UnoTube" />
+<meta property="og:description" content="YouTube Music と YouTube を1つにした自作プレイヤー。広告なしフル再生・予測変換検索・プレイリスト。" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/shot-home.jpg" />
+<meta name="theme-color" content="#08080A" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#08080A; --surface:#131316; --surface-hi:#1C1C21;
+    --line:rgba(255,255,255,.10); --line-strong:rgba(255,255,255,.20);
+    --accent:#FF2D55; --accent-soft:rgba(255,45,85,.16);
+    --t1:#F4F4F6; --t2:#AEAEB8; --t3:#6E6E7A;
+    --r-card:18px; --r-pill:999px; --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--t1);
+    font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.6; overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  .accent{color:var(--accent)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+    background:rgba(8,8,10,.72);border-bottom:1px solid var(--line)}
+  .nav-in{height:60px;display:flex;align-items:center;gap:12px}
+  .brand{font-weight:800;letter-spacing:-.5px;font-size:20px}
+  .badge{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--accent);
+    background:var(--accent-soft);padding:3px 7px;border-radius:6px;margin-left:8px}
+  .nav-cta{margin-left:auto;display:flex;align-items:center;gap:8px}
+  .ghost{color:var(--t2);font-weight:600;font-size:14px;padding:8px 12px;border-radius:var(--r-pill)}
+  .ghost:hover{color:var(--t1)}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;
+    padding:13px 20px;border-radius:var(--r-pill);transition:transform .12s ease,filter .2s ease;white-space:nowrap}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{filter:brightness(1.07)}
+  .btn-outline{border:1px solid var(--line-strong);color:var(--t1)}
+  .btn-outline:hover{border-color:var(--accent);color:#fff}
+  .btn svg{width:18px;height:18px;flex:none}
+
+  /* hero */
+  header.hero{padding:64px 0 56px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  h1{font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-1.5px;font-weight:800;margin:0 0 18px}
+  .lead{color:var(--t2);font-size:clamp(15px,2.3vw,18px);max-width:40ch;margin:0 0 28px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-note{margin-top:16px;color:var(--t3);font-size:13px}
+
+  /* phone */
+  .phone{justify-self:center;width:min(290px,78vw);border-radius:36px;padding:9px;
+    background:linear-gradient(160deg,#202027,#101013);border:1px solid var(--line-strong);
+    box-shadow:0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,45,85,.08);}
+  .phone img{display:block;width:100%;border-radius:28px}
+  .phone.tilt{transform:rotate(2deg)}
+
+  /* sections */
+  section{padding:56px 0}
+  .sec-h{font-size:clamp(24px,4vw,34px);font-weight:800;letter-spacing:-.8px;margin:0 0 10px}
+  .sec-sub{color:var(--t2);max-width:54ch;margin:0 0 34px}
+
+  /* feature: lead split */
+  .feat-split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .feat-split.rev .copy{order:2}
+  .feat-split .copy h3{font-size:24px;font-weight:700;letter-spacing:-.4px;margin:0 0 10px}
+  .feat-split .copy p{color:var(--t2);margin:0;max-width:42ch}
+  .feat-pill{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);
+    background:var(--accent-soft);padding:5px 11px;border-radius:var(--r-pill);margin-bottom:14px}
+
+  /* feature grid (smaller) */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:22px}
+  .card .ic{width:40px;height:40px;border-radius:12px;background:var(--accent-soft);
+    display:grid;place-items:center;margin-bottom:14px;color:var(--accent)}
+  .card .ic svg{width:21px;height:21px}
+  .card h4{margin:0 0 6px;font-size:16px;font-weight:700}
+  .card p{margin:0;color:var(--t2);font-size:14px}
+
+  /* download */
+  #download{background:
+    radial-gradient(120% 80% at 50% -10%, rgba(255,45,85,.10), transparent 60%);}
+  .dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+  .dl-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);
+    padding:26px;display:flex;flex-direction:column;gap:6px}
+  .dl-card .os{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+  .dl-card .os svg{width:22px;height:22px}
+  .dl-card .meta{color:var(--t3);font-size:13px;margin:2px 0 16px}
+  .dl-card .note{color:var(--t2);font-size:13px;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+  .dl-card .btn{align-self:flex-start}
+
+  .warn{margin-top:26px;background:var(--surface-hi);border:1px solid var(--line);
+    border-radius:var(--r-card);padding:18px 20px;color:var(--t2);font-size:13.5px}
+  .warn b{color:var(--t1)}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;color:var(--t3);font-size:13px}
+  .foot-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .foot-row a{color:var(--t2);font-weight:600}
+  .foot-row a:hover{color:var(--t1)}
+  .disc{margin-top:16px;max-width:70ch;line-height:1.7}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  @media (max-width:820px){
+    .hero-grid{grid-template-columns:1fr;gap:34px;text-align:center}
+    .hero-cta{justify-content:center}
+    .lead{margin-left:auto;margin-right:auto}
+    .phone.tilt{transform:none}
+    .feat-split{grid-template-columns:1fr;gap:22px}
+    .feat-split.rev .copy{order:0}
+    .feat-split .phone{order:-1}
+    .feat-split .copy p{max-width:none}
+    .grid3{grid-template-columns:1fr}
+    .dl-grid{grid-template-columns:1fr}
+    .nav-cta .ghost.hide-sm{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <span class="brand">UnoTube<span class="badge">MUSIC</span></span>
+    <span class="nav-cta">
+      <a class="ghost hide-sm" href="#features">機能</a>
+      <a class="ghost" href="#download">ダウンロード</a>
+    </span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <h1>音楽も動画も、<br>ひとつのアプリで。</h1>
+      <p class="lead">UnoTube は YouTube Music と YouTube をまとめた自作プレイヤー。広告に邪魔されず、最後まで再生できます。</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#download">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+          ダウンロード
+        </a>
+        <a class="btn btn-outline" href="#features">機能を見る</a>
+      </div>
+      <p class="hero-note">Android (APK) ／ iOS (IPA) ・ ストアを通さないサイドロード方式</p>
+    </div>
+    <div class="phone tilt reveal">
+      <img src="assets/shot-home.jpg" width="600" height="1300" alt="UnoTube のホーム画面" />
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <div class="feat-split reveal">
+      <div class="copy">
+        <span class="feat-pill">フル再生</span>
+        <h3>広告なしで、最後まで。</h3>
+        <p>生ストリームを直接取得するので、曲やBGMの途中で広告が挟まりません。先頭だけの試聴ではなく、まるごと再生します。</p>
+      </div>
+      <div class="phone"><img src="assets/shot-player.jpg" width="600" height="1300" alt="再生中の画面" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="feat-split rev reveal">
+      <div class="copy">
+        <span class="feat-pill">検索</span>
+        <h3>打つそばから、候補が出る。</h3>
+        <p>入力に合わせて候補をその場で表示。関連する曲や動画もまとめて出て、「さらに表示」でどんどん深掘りできます。</p>
+      </div>
+      <div class="phone"><img src="assets/shot-search.jpg" width="600" height="1300" alt="検索の予測変換" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="feat-split reveal">
+      <div class="copy">
+        <span class="feat-pill">ライブラリ</span>
+        <h3>お気に入りも、自分だけのプレイリストも。</h3>
+        <p>端末内に保存するので、ログインなしでもオフラインで開けます。再生中の曲からワンタップで追加。URLを貼って取り込むこともできます。</p>
+      </div>
+      <div class="phone"><img src="assets/shot-library.jpg" width="600" height="1300" alt="ライブラリ画面" loading="lazy" /></div>
+    </div>
+
+    <div class="grid3">
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 12a9 9 0 0 1 9-9 1 1 0 1 1 0 2 7 7 0 1 0 7 7 1 1 0 1 1 2 0 9 9 0 1 1-18 0Z"/><path d="M11 7a1 1 0 1 1 2 0v4.6l3 1.7a1 1 0 1 1-1 1.74l-3.5-2A1 1 0 0 1 11 12V7Z"/></svg></div>
+        <h4>弱い電波でも粘る</h4>
+        <p>先読みと深いバッファで、回線が不安定でも途切れにくく再生します。</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5a1 1 0 0 0 1.42 1.42l1.5-1.5a3 3 0 1 1 4.24 4.24l-3 3a3 3 0 0 1-4.24 0 1 1 0 0 0-1.42 1.42Zm4-2a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5a1 1 0 1 0-1.42-1.42l-1.5 1.5a3 3 0 0 1-4.24-4.24l3-3a3 3 0 0 1 4.24 0A1 1 0 0 0 14 11Z"/></svg></div>
+        <h4>URLから追加</h4>
+        <p>YouTube や YT Music のリンクを貼るだけで、曲もプレイリストも取り込めます。</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18a3 3 0 1 1-2-2.83V7a1 1 0 0 1 .76-.97l9-2.25A1 1 0 0 1 18 4.75V15a3 3 0 1 1-2-2.83V8.78l-7 1.75v5.64A3 3 0 0 1 9 18Z"/></svg></div>
+        <h4>バックグラウンド再生</h4>
+        <p>画面を消しても再生継続。通知やロック画面から操作できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <h2 class="sec-h reveal">ダウンロード</h2>
+    <p class="sec-sub reveal">お使いの端末を選んでください。バージョン 1.0.0。</p>
+    <div class="dl-grid">
+      <div class="dl-card reveal">
+        <div class="os">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.2 6.3 6 4.4a.4.4 0 0 1 .7-.4l1.2 2a8 8 0 0 1 8.2 0l1.2-2a.4.4 0 0 1 .7.4l-1.2 1.9A7.3 7.3 0 0 1 20 12H4a7.3 7.3 0 0 1 3.2-5.7ZM9 9.5a.9.9 0 1 0 0-1.8.9.9 0 0 0 0 1.8Zm6 0a.9.9 0 1 0 0-1.8.9.9 0 0 0 0 1.8ZM4 13h16v5.5A1.5 1.5 0 0 1 18.5 20H17v2.1a1.1 1.1 0 0 1-2.2 0V20H9.2v2.1a1.1 1.1 0 0 1-2.2 0V20H5.5A1.5 1.5 0 0 1 4 18.5V13Z"/></svg>
+          Android
+        </div>
+        <div class="meta">APK ・ 約 61 MB ・ Android 8.0+</div>
+        <a class="btn btn-primary" href="https://github.com/ryuto-alt/unotube-releases/releases/latest/download/UnoTube-1.0.0.apk">
+          APK をダウンロード
+        </a>
+        <p class="note">インストール時に「提供元不明のアプリ」を許可してください。APK を開く → 許可 → インストール。</p>
+      </div>
+
+      <div class="dl-card reveal">
+        <div class="os">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.7c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.6.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.8-3.6 2.2-1.5 2.7-.4 6.6 1.1 8.8.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7 1.3 0 1.6.7 2.8.7 1.1 0 1.9-1 2.6-2.1.8-1.2 1.1-2.3 1.2-2.4-.1 0-2.2-.9-2.2-3.5ZM14.3 6.1c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.6 1 .1 1.9-.5 2.5-1.2Z"/></svg>
+          iOS
+        </div>
+        <div class="meta">IPA ・ サイドロード / 脱獄端末</div>
+        <a class="btn btn-outline" href="https://github.com/ryuto-alt/unotube-releases/releases/latest">
+          リリースから入手
+        </a>
+        <p class="note">AltStore / Sideloadly などで .ipa を入れるか、脱獄端末にインストール。署名は各自で行ってください。</p>
+      </div>
+    </div>
+
+    <div class="warn reveal">
+      <b>使い方の注意:</b> 個人利用向けの自作アプリです。ログインは専用のサブアカウントを推奨します(普段使いのアカウントは避けてください)。YouTube / YouTube Music は各権利者の商標です。本アプリは非公式で、各社とは無関係です。
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <span class="brand" style="font-size:17px">UnoTube</span>
+      <a href="https://github.com/ryuto-alt/unotube-releases">GitHub</a>
+      <a href="#download">ダウンロード</a>
+      <span style="margin-left:auto">v1.0.0</span>
+    </div>
+    <p class="disc">UnoTube は学習目的で個人開発した非公式クライアントです。再生は各サービスのストリームを利用します。利用は自己責任でお願いします。</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal (IntersectionObserver, reduced-motion aware).
+  const io = new IntersectionObserver((entries)=>{
+    for (const e of entries){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }
+  }, {threshold:.16});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -153,6 +153,7 @@
   .esign-line a{color:var(--accent);font-weight:600}
   .ios-actions{margin-top:20px}
   .kit-h{font-size:13.5px;font-weight:700;color:var(--t2);margin:24px 0 12px}
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px}
 
   footer{border-top:1px solid var(--line);padding:36px 0 60px;color:var(--t3);font-size:13px}
   .foot-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
@@ -296,19 +297,28 @@
     </div>
 
     <div class="panel" id="panel-ios" role="tabpanel" aria-labelledby="tab-ios" hidden>
-      <p class="panel-lead reveal">iPhone に入れるには <b>PC を一度</b>使います(Windows / Mac)。全部無料、手順どおりで10分ほど。</p>
+      <p class="panel-lead reveal">iPhone に入れるには <b>PC を一度</b>使います(Windows / Mac)。下の2つを用意するだけ。全部無料、10分ほど。</p>
 
-      <h3 class="kit-h reveal">アプリ本体</h3>
+      <h3 class="kit-h reveal">用意するもの</h3>
       <div class="dl-grid">
         <div class="dl-card reveal">
           <div class="os">UnoTube <span class="tag body">本体</span></div>
           <div class="meta">IPA ・ 約 8 MB ・ 常に最新</div>
           <a class="btn btn-primary" href="https://github.com/ryuto-alt/unotube-releases/releases/latest/download/UnoTube.ipa">UnoTube.ipa</a>
-          <p class="note">このファイルを PC のツールで iPhone に入れます。</p>
+          <p class="note">アプリ本体。これを右の AltServer で iPhone に入れます。</p>
+        </div>
+        <div class="dl-card reveal">
+          <div class="os">AltServer <span class="tag opt">PC用・無料</span></div>
+          <div class="meta">iPhone に入れるための PC アプリ ・ 公式・常に最新</div>
+          <div class="btn-row">
+            <a class="btn btn-outline" href="https://cdn.altstore.io/file/altstore/altinstaller.zip">Windows</a>
+            <a class="btn btn-outline" href="https://cdn.altstore.io/file/altstore/altserver.zip">Mac</a>
+          </div>
+          <p class="note">Windows 10+ / macOS 11+。PC で起動 → iPhone を繋いで使います。</p>
         </div>
       </div>
 
-      <p class="esign-line reveal">かんたん3ステップ: ① PC に <b>AltStore</b>(無料)を入れる → ② iPhone を繋いで UnoTube.ipa をインストール → ③ iPhone で信頼して起動。</p>
+      <p class="esign-line reveal">かんたん3ステップ: ① AltServer を PC に入れて起動 → ② iPhone を繋いで UnoTube.ipa をインストール → ③ iPhone で信頼して起動。</p>
       <div class="ios-actions reveal"><a class="btn btn-outline" href="#ios">くわしい手順を見る</a></div>
     </div>
 
@@ -328,8 +338,8 @@
       <div class="step reveal">
         <span class="n">1</span>
         <div>
-          <h4>PC に無料ツールを入れる</h4>
-          <p>定番は <b><a href="https://altstore.io/" target="_blank" rel="noopener">AltStore</a></b>。PC に AltServer を入れて起動します。<b><a href="https://sideloadly.io/" target="_blank" rel="noopener">Sideloadly</a></b> でも同じことができます。どちらも無料・Windows / Mac 対応。</p>
+          <h4>AltServer を PC に入れて起動する</h4>
+          <p>上の「用意するもの」から <b>AltServer</b>(Windows / Mac)をダウンロードして PC で起動します。初めてなら <a href="https://faq.altstore.io/altstore-classic/how-to-install-altstore-windows" target="_blank" rel="noopener">公式の手順</a> を見ながらが確実。<b><a href="https://sideloadly.io/" target="_blank" rel="noopener">Sideloadly</a></b> でも代用できます。</p>
         </div>
       </div>
 

@@ -296,7 +296,7 @@
     </div>
 
     <div class="panel" id="panel-ios" role="tabpanel" aria-labelledby="tab-ios" hidden>
-      <p class="panel-lead reveal">未署名のIPAです。署名アプリを1つ入れて iPhone で署名すれば使えます(無料 Apple ID なら7日ごとに入れ直し)。必要なものは全部ここから。リンクは常に各ツールの最新版(GitHub 公開)です。</p>
+      <p class="panel-lead reveal">iPhone だけ(PC なし)でも入れられます。お使いの iOS で最適な方法が変わるので、下の早見で選んでください。ファイルのリンクは常に最新版です。</p>
 
       <h3 class="kit-h reveal">アプリ本体</h3>
       <div class="dl-grid">
@@ -304,11 +304,21 @@
           <div class="os">UnoTube <span class="tag body">本体</span></div>
           <div class="meta">IPA ・ 約 8 MB ・ 常に最新</div>
           <a class="btn btn-primary" href="https://github.com/ryuto-alt/unotube-releases/releases/latest/download/UnoTube.ipa">UnoTube.ipa</a>
-          <p class="note">これがアプリ本体。下の署名アプリで署名して入れます。</p>
+          <p class="note">これがアプリ本体。これを「署名」して入れます。</p>
         </div>
       </div>
 
-      <h3 class="kit-h reveal">署名アプリ(どれか1つ入れる)</h3>
+      <div class="refresh reveal">
+        <span class="feat-pill">PC なしで入れる</span>
+        <p style="margin-top:10px"><b>パソコンが無くても大丈夫。iOS のバージョンで方法が決まります。</b></p>
+        <p><b>iOS 14〜16.6.1 / 17.0 の人 →</b> <a href="https://github.com/opa334/TrollStore" target="_blank" rel="noopener">TrollStore</a> が最強。一度入れれば <b>永久に有効</b>で、PC も7日ごとの再署名も <b>不要</b>。導入手順は <a href="https://ios.cfw.guide/installing-trollstore/" target="_blank" rel="noopener">ios.cfw.guide</a> が分かりやすいです。</p>
+        <p>
+          <b>最新 iOS(17.0.1 以降)の人 →</b> Safari から直接入る ESign 系を使うしかありません(これが Apple 仕様上の限界)。7日ごとに署名し直し、証明書が切れたらアプリ内の「証明書をパッチ」か新しいリンクで入れ直します。無料の <a href="https://esign-ios.com/" target="_blank" rel="noopener">ESign</a> は不安定、<a href="https://appdb.to/" target="_blank" rel="noopener">appdb</a>(有料)は比較的安定。
+          <span class="fine">どちらも第三者サービスです。Apple ID は普段使いと別のサブを推奨。</span>
+        </p>
+      </div>
+
+      <h3 class="kit-h reveal">PC を一度だけ使えるなら(より安定・おすすめ)</h3>
       <div class="kit">
         <div class="dl-card reveal">
           <div class="os">Feather <span class="tag req">推奨</span></div>
@@ -330,8 +340,8 @@
         </div>
       </div>
 
-      <p class="esign-line reveal">どれも署名は無料の Apple ID でOK(7日ごとに署名し直し)。最初の1回だけ PC の AltStore / Sideloadly が要ります。迷ったら <b>Feather</b> で。</p>
-      <div class="ios-actions reveal"><a class="btn btn-outline" href="#ios">入れ方の手順を見る</a></div>
+      <p class="esign-line reveal">この3つは署名アプリ本体を入れる <b>最初の1回だけ</b> PC(AltStore / Sideloadly)が要りますが、以降はずっと iPhone だけで完結し、証明書も安定します。迷ったら <b>Feather</b>。</p>
+      <div class="ios-actions reveal"><a class="btn btn-outline" href="#ios">手順をくわしく見る</a></div>
     </div>
 
     <div class="warn reveal">
@@ -344,7 +354,7 @@
   <div class="wrap">
     <span class="feat-pill reveal">iOS</span>
     <h2 class="sec-h reveal">iPhone で署名して入れる</h2>
-    <p class="sec-sub reveal">未署名のIPAは、署名アプリを1つ入れれば iPhone で署名して使えます。無料の Apple ID は7日で署名が切れるので、開かなくなったら同じアプリで署名し直すだけ。最新の iOS でも使えます。</p>
+    <p class="sec-sub reveal">下は「署名アプリで入れる」流れです。<b>PC が無い人</b>は上の「PC なしで入れる」を見てください(iOS 14〜17.0 なら TrollStore で再署名すら不要)。無料の Apple ID で署名すると7日で切れるので、開かなくなったら署名し直すだけ。最新の iOS でも使えます。</p>
 
     <div class="guide">
       <div class="step reveal">
@@ -352,7 +362,7 @@
         <div>
           <h4>署名アプリを1つ入れる(初回だけ)</h4>
           <p>おすすめは <b>Feather</b>(オープンソース)。上の「iOS」タブから <b>Feather.ipa</b> を入手し、最初の1回だけ PC の AltStore / Sideloadly、または SideStore で iPhone に入れます。一度入れれば、次からは iPhone だけで完結します。</p>
-          <p class="sub">※ Feather のほか、<b>Ksign</b>(ESign のクリーン版)や <b>SideStore</b> でも同じことができます。どれも上の「iOS」タブから直接ダウンロードでき、最初の導入だけ PC を使います。</p>
+          <p class="sub">※ Feather のほか <b>Ksign</b>・<b>SideStore</b> でも同じです(初回だけ PC)。<b>PC が全く無い</b>なら、iOS 14〜17.0 は <b>TrollStore</b>、最新 iOS は <b>ESign</b> 系。詳しくは上のダウンロードの「PC なしで入れる」を見てください。</p>
         </div>
       </div>
 
@@ -397,7 +407,7 @@
     </div>
 
     <p class="alt-note reveal">
-      <b>どれを選べばいい?</b> 定番で迷ったら <b>Feather</b>、ESign に近い使い心地なら <b>Ksign</b>、放っておいても更新したいなら <b>SideStore</b>。3つとも上の「iOS」タブから直接ダウンロードできます(全部 GitHub 公開・常に最新)。署名アプリ自体が起動しなくなったら、最新版を入れ直してください。
+      <b>どれを選べばいい?</b> PC を一度使えるなら、定番の <b>Feather</b>、ESign に近い使い心地の <b>Ksign</b>、自動更新の <b>SideStore</b>(全部 GitHub 公開・常に最新)。<b>PC が無いなら</b>、iOS 14〜17.0 は <b>TrollStore</b>(一度で永久・再署名すら不要)、最新 iOS は <b>ESign</b> 系か <b>appdb</b>。署名アプリ自体が起動しなくなったら、最新版を入れ直してください。
     </p>
   </div>
 </section>

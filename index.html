@@ -297,7 +297,7 @@
     </div>
 
     <div class="panel" id="panel-ios" role="tabpanel" aria-labelledby="tab-ios" hidden>
-      <p class="panel-lead reveal">iPhone に入れるには <b>PC を一度</b>使います(Windows / Mac)。下の2つを用意するだけ。全部無料、10分ほど。</p>
+      <p class="panel-lead reveal">PC を使うのは <b>最初の1回だけ</b>。あとは iPhone だけで自動更新されます(SideStore)。全部無料。</p>
 
       <h3 class="kit-h reveal">用意するもの</h3>
       <div class="dl-grid">
@@ -305,20 +305,17 @@
           <div class="os">UnoTube <span class="tag body">本体</span></div>
           <div class="meta">IPA ・ 約 8 MB ・ 常に最新</div>
           <a class="btn btn-primary" href="https://github.com/ryuto-alt/unotube-releases/releases/latest/download/UnoTube.ipa">UnoTube.ipa</a>
-          <p class="note">アプリ本体。これを右の AltServer で iPhone に入れます。</p>
+          <p class="note">アプリ本体。これを SideStore で iPhone に入れます。</p>
         </div>
         <div class="dl-card reveal">
-          <div class="os">AltServer <span class="tag opt">PC用・無料</span></div>
-          <div class="meta">iPhone に入れるための PC アプリ ・ 公式・常に最新</div>
-          <div class="btn-row">
-            <a class="btn btn-outline" href="https://cdn.altstore.io/file/altstore/altinstaller.zip">Windows</a>
-            <a class="btn btn-outline" href="https://cdn.altstore.io/file/altstore/altserver.zip">Mac</a>
-          </div>
-          <p class="note">Windows 10+ / macOS 11+。PC で起動 → iPhone を繋いで使います。</p>
+          <div class="os">SideStore <span class="tag opt">署名・無料</span></div>
+          <div class="meta">IPA ・ オープンソース ・ 常に最新 ・ iOS 15〜26</div>
+          <a class="btn btn-outline" href="https://github.com/SideStore/SideStore/releases/latest/download/SideStore.ipa">SideStore.ipa</a>
+          <p class="note">初回だけ PC で導入。以降は iPhone だけで7日更新を自動化。</p>
         </div>
       </div>
 
-      <p class="esign-line reveal">かんたん3ステップ: ① AltServer を PC に入れて起動 → ② iPhone を繋いで UnoTube.ipa をインストール → ③ iPhone で信頼して起動。</p>
+      <p class="esign-line reveal">流れ: ① PC で SideStore を iPhone に入れる(一度きり)→ ② SideStore の中で UnoTube.ipa を入れる → ③ 以降は iPhone だけで7日ごと自動更新。</p>
       <div class="ios-actions reveal"><a class="btn btn-outline" href="#ios">くわしい手順を見る</a></div>
     </div>
 
@@ -331,60 +328,60 @@
 <section id="ios">
   <div class="wrap">
     <span class="feat-pill reveal">iOS</span>
-    <h2 class="sec-h reveal">PC で iPhone に入れる</h2>
-    <p class="sec-sub reveal">PC(Windows / Mac)の無料ツールで入れます。難しくありません。Apple ID は普段使いと別のサブを推奨。無料 Apple ID の署名は7日で切れるので、切れたら更新します(自動化もできます)。</p>
+    <h2 class="sec-h reveal">SideStore で入れる(初回だけ PC)</h2>
+    <p class="sec-sub reveal">最初の1回だけ PC で SideStore を入れます。そのあとは <b>PC 不要</b>。iPhone だけで7日ごとに自動で署名し直します。iOS 26 まで対応。Apple ID は普段使いと別のサブを推奨。</p>
 
     <div class="guide">
       <div class="step reveal">
         <span class="n">1</span>
         <div>
-          <h4>AltServer を PC に入れて起動する</h4>
-          <p>上の「用意するもの」から <b>AltServer</b>(Windows / Mac)をダウンロードして PC で起動します。初めてなら <a href="https://faq.altstore.io/altstore-classic/how-to-install-altstore-windows" target="_blank" rel="noopener">公式の手順</a> を見ながらが確実。<b><a href="https://sideloadly.io/" target="_blank" rel="noopener">Sideloadly</a></b> でも代用できます。</p>
+          <h4>PC で SideStore を iPhone に入れる(一度きり)</h4>
+          <p>PC と iPhone を USB で繋ぎ、SideStore 公式インストーラ(iloader)で Apple ID を入れて SideStore をインストールします。正確で最新の手順は <a href="https://docs.sidestore.io/docs/installation/install" target="_blank" rel="noopener">SideStore 公式ガイド</a> を見ながらが確実(Windows / Mac / Linux 対応)。</p>
         </div>
       </div>
 
       <div class="step reveal">
         <span class="n">2</span>
         <div>
-          <h4>UnoTube.ipa を PC に保存する</h4>
-          <p>上の「iOS」タブの <b>UnoTube.ipa</b> を PC にダウンロードしておきます。</p>
+          <h4>SideStore を信頼して開く</h4>
+          <p><b>設定 → 一般 → VPNとデバイス管理</b> で自分の Apple ID を「信頼」。iOS 16 以降は <b>デベロッパモード</b>(設定 → プライバシーとセキュリティ)もオン。案内に従って VPN(LocalDevVPN)を接続します。</p>
         </div>
       </div>
 
       <div class="step reveal">
         <span class="n">3</span>
         <div>
-          <h4>iPhone を USB で PC に繋ぐ</h4>
-          <p>ツールの案内に従って iPhone を認識させます(Windows は iTunes / Apple Devices が必要な場合あり)。</p>
+          <h4>SideStore にサインイン</h4>
+          <p>SideStore を開き、手順1と同じ Apple ID でサインインします。</p>
         </div>
       </div>
 
       <div class="step reveal">
         <span class="n">4</span>
         <div>
-          <h4>UnoTube をインストール</h4>
-          <p>ツールで <b>UnoTube.ipa</b> を選び、<b>自分の Apple ID(サブ推奨)</b> を入力 → インストール。ホーム画面に UnoTube が追加されます。</p>
+          <h4>UnoTube を SideStore で入れる</h4>
+          <p>上の <b>UnoTube.ipa</b> を保存し、SideStore の「+」から選んでインストール。ホーム画面に UnoTube が追加されます。</p>
         </div>
       </div>
 
       <div class="step reveal">
         <span class="n">5</span>
         <div>
-          <h4>iPhone で信頼して起動</h4>
-          <p><b>設定 → 一般 → VPNとデバイス管理</b> で自分の Apple ID(デベロッパApp)を「信頼」→ UnoTube を開いて完了。</p>
+          <h4>完了。あとは自動</h4>
+          <p>7日ごとの再署名は <b>iPhone だけで自動</b>(「7 DAYS」表示をタップで手動更新も可)。<b>もう PC は要りません。</b></p>
         </div>
       </div>
     </div>
 
     <div class="refresh reveal">
-      <span class="feat-pill">7日ごと</span>
-      <p style="margin-top:10px"><b>署名は7日で切れます。更新方法は2つ。</b></p>
-      <p><b>かんたん:</b> <b>AltStore</b> は PC と同じ Wi-Fi にいれば <b>自動で更新</b>されます(PC を起動しておくだけ)。毎回 PC を出したくないなら <b><a href="https://github.com/SideStore/SideStore/releases/latest/download/SideStore.ipa" target="_blank" rel="noopener">SideStore</a></b> に乗り換えると、初回 PC のあとは端末内で自動更新できます。</p>
-      <p class="fine">毎週の更新自体が面倒なら、有料の Apple Developer Program($99/年)で署名すると1年もちます。</p>
+      <span class="feat-pill">初回だけ PC</span>
+      <p style="margin-top:10px"><b>セットアップが済めば、もう PC は出番なし。</b></p>
+      <p>SideStore が Wi-Fi 経由で、自分自身と UnoTube を7日ごとに自動で署名し直します。アプリが切れて止まることも、PC を出すこともありません。これが「初回だけ PC」の意味です。</p>
+      <p class="fine">毎週の更新すら無くしたいなら、有料の Apple Developer Program($99/年)で署名すると1年もちます。</p>
     </div>
 
     <p class="alt-note reveal">
-      <b>補足:</b> Windows / Mac 前提です。AltStore の<a href="https://faq.altstore.io/" target="_blank" rel="noopener">公式手順</a>が一番ていねいなので、初めてならそれを見ながらが確実。署名が切れて開けなくなっても、もう一度インストールし直せば <b>お気に入りやプレイリストのデータは残ります</b>。
+      <b>補足:</b> 正確で最新の導入手順は <a href="https://docs.sidestore.io/docs/installation/install" target="_blank" rel="noopener">SideStore 公式ガイド</a> が確実(ツール名や細部は更新されることがあります)。最初の PC がどうしても用意できない場合、iOS のサイドロードは原理上どうにもなりません(Apple の仕様)。署名が切れて開けなくなっても、SideStore で入れ直せば <b>お気に入りやプレイリストは残ります</b>。
     </p>
   </div>
 </section>

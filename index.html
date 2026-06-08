@@ -108,6 +108,25 @@
   .warn{margin-top:26px;background:var(--surface-hi);border:1px solid var(--line);
     border-radius:var(--r-card);padding:18px 20px;color:var(--t2);font-size:13.5px}
   .warn b{color:var(--t1)}
+  .note a{color:var(--accent);font-weight:600}
+
+  /* iOS guide (numbered steps) */
+  #ios{background:radial-gradient(120% 80% at 50% -10%, rgba(255,45,85,.06), transparent 60%)}
+  .guide{display:flex;flex-direction:column;gap:12px;margin-top:30px;max-width:760px}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:18px 20px}
+  .step .n{width:30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent);
+    font-weight:800;font-size:15px;display:grid;place-items:center}
+  .step h4{margin:0 0 4px;font-size:15.5px;font-weight:700}
+  .step p{margin:0;color:var(--t2);font-size:14px}
+  .step .sub{margin-top:7px;color:var(--t3);font-size:12.5px;line-height:1.6}
+  .refresh{margin-top:22px;max-width:760px;border:1px solid var(--line-strong);border-radius:var(--r-card);
+    padding:20px 22px;background:linear-gradient(160deg,var(--accent-soft),transparent 70%)}
+  .refresh b{color:var(--t1);font-size:16px}
+  .refresh p{margin:8px 0 0;color:var(--t2);font-size:14px}
+  .refresh p.fine{margin-top:12px;color:var(--t3);font-size:13px}
+  .alt-note{margin-top:18px;max-width:760px;color:var(--t3);font-size:13px;line-height:1.75}
+  .alt-note b{color:var(--t2)}
 
   footer{border-top:1px solid var(--line);padding:36px 0 60px;color:var(--t3);font-size:13px}
   .foot-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
@@ -247,13 +266,75 @@
         <a class="btn btn-outline" href="https://github.com/ryuto-alt/unotube-releases/releases/latest/download/UnoTube.ipa">
           IPA をダウンロード
         </a>
-        <p class="note">未署名IPAです。AltStore / Sideloadly で入れるか、脱獄端末にインストール。署名は各自で行ってください。</p>
+        <p class="note">未署名IPAです。署名すれば <a href="#ios">パソコンなし・iPhoneだけ</a> で入れられます(無料Apple IDは7日ごとに入れ直し)。</p>
       </div>
     </div>
 
     <div class="warn reveal">
       <b>使い方の注意:</b> 個人利用向けの自作アプリです。ログインは専用のサブアカウントを推奨します(普段使いのアカウントは避けてください)。YouTube / YouTube Music は各権利者の商標です。本アプリは非公式で、各社とは無関係です。
     </div>
+  </div>
+</section>
+
+<section id="ios">
+  <div class="wrap">
+    <span class="feat-pill reveal">iOS</span>
+    <h2 class="sec-h reveal">パソコンなし、iPhoneだけで入れる</h2>
+    <p class="sec-sub reveal">未署名のIPAは、iPhone単体で署名して入れられます。無料のApple IDで署名すると7日で切れるので、開かなくなったら同じ手順で入れ直します(下に手順)。最新の iOS でも使えます。</p>
+
+    <div class="guide">
+      <div class="step reveal">
+        <span class="n">1</span>
+        <div>
+          <h4>署名アプリ「ESign」を入れる</h4>
+          <p>Safari で ESign の配布ページを開いてインストール。<b>設定 → 一般 → VPNとデバイス管理</b> で ESign の開発元を「信頼」。</p>
+          <p class="sub">※ オープンソースの Feather でも代用できます(より安全)。ただし Feather は最初の導入だけ PC か AltStore が必要。完全に iPhone だけで完結させたいなら ESign が手軽です。</p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <span class="n">2</span>
+        <div>
+          <h4>UnoTube の IPA を保存する</h4>
+          <p>このページの「IPA をダウンロード」をタップ → 表示が出たら <b>"ファイル" に保存</b> を選びます。</p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <span class="n">3</span>
+        <div>
+          <h4>自分の Apple ID を登録する</h4>
+          <p>ESign を開き、署名用に自分の Apple ID を追加(<b>普段使いとは別のサブ推奨</b>)。App用パスワードの作成を求められたら、画面の案内どおりに進めます。</p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <span class="n">4</span>
+        <div>
+          <h4>署名してインストール</h4>
+          <p>ESign で先ほどの <b>UnoTube.ipa</b> を選び「署名」→ 続けて「インストール」。ホーム画面に UnoTube が追加されます。</p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <span class="n">5</span>
+        <div>
+          <h4>アプリを信頼して起動</h4>
+          <p><b>設定 → 一般 → VPNとデバイス管理</b> で自分の Apple ID(デベロッパApp)を「信頼」→ UnoTube を開いて完了。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="refresh reveal">
+      <span class="feat-pill">7日ごと</span>
+      <p style="margin-top:10px"><b>開かなくなったら、入れ直すだけ。</b></p>
+      <p>無料 Apple ID の署名は7日で切れます。起動しなくなったら ESign をもう一度開いて、同じ <b>UnoTube.ipa</b> を「署名」→「インストール」で上書きするだけ。お気に入りやプレイリストなどのデータはそのまま残ります。</p>
+      <p class="fine">毎週が面倒なら、有料の Apple Developer Program($99/年)で署名すると1年もちます。その場合はこの入れ直しが不要になります。</p>
+    </div>
+
+    <p class="alt-note reveal">
+      <b>うまくいかないとき:</b> ESign 自体が起動しなくなったら、配布証明書が Apple 側で失効した可能性があります。新しい配布リンクから ESign を入れ直してください。 ／ PC が使えるなら、SideStore(初回だけ PC・以降は Wi-Fi で自動更新)や Sideloadly でも同じ IPA を入れられます。
+    </p>
   </div>
 </section>
 

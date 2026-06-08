@@ -152,6 +152,7 @@
   .esign-line{margin-top:18px;color:var(--t2);font-size:13.5px;line-height:1.7}
   .esign-line a{color:var(--accent);font-weight:600}
   .ios-actions{margin-top:20px}
+  .kit-h{font-size:13.5px;font-weight:700;color:var(--t2);margin:24px 0 12px}
 
   footer{border-top:1px solid var(--line);padding:36px 0 60px;color:var(--t3);font-size:13px}
   .foot-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
@@ -295,28 +296,41 @@
     </div>
 
     <div class="panel" id="panel-ios" role="tabpanel" aria-labelledby="tab-ios" hidden>
-      <p class="panel-lead reveal">未署名のIPAです。下のファイルを使って iPhone で署名すれば入れられます(無料 Apple ID なら7日ごとに入れ直し)。必要なものは全部ここから。リンクは常に各ツールの最新版です。</p>
-      <div class="kit">
+      <p class="panel-lead reveal">未署名のIPAです。署名アプリを1つ入れて iPhone で署名すれば使えます(無料 Apple ID なら7日ごとに入れ直し)。必要なものは全部ここから。リンクは常に各ツールの最新版(GitHub 公開)です。</p>
+
+      <h3 class="kit-h reveal">アプリ本体</h3>
+      <div class="dl-grid">
         <div class="dl-card reveal">
           <div class="os">UnoTube <span class="tag body">本体</span></div>
-          <div class="meta">IPA ・ アプリ本体 ・ 常に最新</div>
+          <div class="meta">IPA ・ 約 8 MB ・ 常に最新</div>
           <a class="btn btn-primary" href="https://github.com/ryuto-alt/unotube-releases/releases/latest/download/UnoTube.ipa">UnoTube.ipa</a>
-          <p class="note">これが本体。下の署名アプリで署名して入れます。</p>
+          <p class="note">これがアプリ本体。下の署名アプリで署名して入れます。</p>
         </div>
+      </div>
+
+      <h3 class="kit-h reveal">署名アプリ(どれか1つ入れる)</h3>
+      <div class="kit">
         <div class="dl-card reveal">
-          <div class="os">Feather <span class="tag req">署名・推奨</span></div>
+          <div class="os">Feather <span class="tag req">推奨</span></div>
           <div class="meta">IPA ・ オープンソース ・ 常に最新</div>
           <a class="btn btn-outline" href="https://github.com/claration/Feather/releases/latest/download/Feather.ipa">Feather.ipa</a>
-          <p class="note">端末で署名できるアプリ。初回だけ PC で導入。</p>
+          <p class="note">定番の端末内署名アプリ。初回だけ PC で導入。</p>
         </div>
         <div class="dl-card reveal">
-          <div class="os">SideStore <span class="tag opt">署名・任意</span></div>
+          <div class="os">Ksign <span class="tag opt">ESign系</span></div>
+          <div class="meta">IPA ・ オープンソース ・ 常に最新</div>
+          <a class="btn btn-outline" href="https://github.com/Nyasami/Ksign/releases/latest/download/Ksign.ipa">Ksign.ipa</a>
+          <p class="note">ESign のクリーン版。使い心地が近い。初回だけ PC。</p>
+        </div>
+        <div class="dl-card reveal">
+          <div class="os">SideStore <span class="tag opt">自動更新</span></div>
           <div class="meta">IPA ・ オープンソース ・ 常に最新</div>
           <a class="btn btn-outline" href="https://github.com/SideStore/SideStore/releases/latest/download/SideStore.ipa">SideStore.ipa</a>
           <p class="note">初回だけ PC、以降は Wi-Fi で自動更新。</p>
         </div>
       </div>
-      <p class="esign-line reveal">パソコンが一切ない人向け: <b>ESign</b>(クローズドソース)なら Safari から直接入れられます。配布は <a href="https://esign-ios.com/" target="_blank" rel="noopener">公式サイト</a> から(第三者サイト・自己責任)。</p>
+
+      <p class="esign-line reveal">どれも署名は無料の Apple ID でOK(7日ごとに署名し直し)。最初の1回だけ PC の AltStore / Sideloadly が要ります。迷ったら <b>Feather</b> で。</p>
       <div class="ios-actions reveal"><a class="btn btn-outline" href="#ios">入れ方の手順を見る</a></div>
     </div>
 
@@ -338,7 +352,7 @@
         <div>
           <h4>署名アプリを1つ入れる(初回だけ)</h4>
           <p>おすすめは <b>Feather</b>(オープンソース)。上の「iOS」タブから <b>Feather.ipa</b> を入手し、最初の1回だけ PC の AltStore / Sideloadly、または SideStore で iPhone に入れます。一度入れれば、次からは iPhone だけで完結します。</p>
-          <p class="sub">※ パソコンが一切ないなら <b>ESign</b>(公式サイト・クローズドソース)が Safari から直接入ります。手軽ですが出所が公式以外なので自己責任で。</p>
+          <p class="sub">※ Feather のほか、<b>Ksign</b>(ESign のクリーン版)や <b>SideStore</b> でも同じことができます。どれも上の「iOS」タブから直接ダウンロードでき、最初の導入だけ PC を使います。</p>
         </div>
       </div>
 
@@ -383,7 +397,7 @@
     </div>
 
     <p class="alt-note reveal">
-      <b>どれを選べばいい?</b> オープンソースで安全重視なら <b>Feather</b>、放っておいても更新したいなら <b>SideStore</b>、パソコンが一切ないなら <b>ESign</b>。いずれも上の「iOS」タブから入手できます(ESign のみ公式サイト)。署名アプリ自体が起動しなくなったら、最新版を入れ直してください。
+      <b>どれを選べばいい?</b> 定番で迷ったら <b>Feather</b>、ESign に近い使い心地なら <b>Ksign</b>、放っておいても更新したいなら <b>SideStore</b>。3つとも上の「iOS」タブから直接ダウンロードできます(全部 GitHub 公開・常に最新)。署名アプリ自体が起動しなくなったら、最新版を入れ直してください。
     </p>
   </div>
 </section>

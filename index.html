@@ -198,7 +198,45 @@
 
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  /* ===== entrance animations ===== */
+  @keyframes riseIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  @keyframes blobPop{from{opacity:0;transform:scale(.5)}to{transform:scale(1)}}
+  @keyframes navDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+
+  /* scroll-reveal stagger (features / steps) */
+  .feat-grid .feat:nth-child(2){transition-delay:.08s}
+  .feat-grid .feat:nth-child(3){transition-delay:.16s}
+  .feat-grid .feat:nth-child(4){transition-delay:.24s}
+  .steps3 > :nth-child(2){transition-delay:.10s}
+  .steps3 > :nth-child(3){transition-delay:.18s}
+  .steps3 > :nth-child(4){transition-delay:.26s}
+  .steps3 > :nth-child(5){transition-delay:.34s}
+
+  /* section underline grows in */
+  .sec-head .uline{transform:scaleX(0);transform-origin:center;transition:transform .55s cubic-bezier(.2,.7,.2,1) .22s}
+  .sec-head.in .uline{transform:scaleX(1)}
+
+  @media (prefers-reduced-motion:no-preference){
+    /* nav drops in */
+    header.nav{animation:navDown .6s cubic-bezier(.2,.7,.2,1) both}
+    /* hero loads top-to-bottom */
+    .hero-copy > *{opacity:0;animation:riseIn .8s cubic-bezier(.2,.7,.2,1) both}
+    .hero-copy > .hero-lockup{animation-delay:.06s}
+    .hero-copy > h1{animation-delay:.16s}
+    .hero-copy > .lead{animation-delay:.27s}
+    .hero-copy > .store-row{animation-delay:.38s}
+    .hero-copy > .hero-note{animation-delay:.48s}
+    .hero-phone{opacity:0;animation:riseIn 1s cubic-bezier(.2,.7,.2,1) .24s both}
+    .blob-red{animation:blobPop 1.2s cubic-bezier(.2,.7,.2,1) .12s both}
+    .blob-gray{animation:blobPop 1.3s ease .06s both}
+    /* iOS steps appear in sequence when the iOS tab opens */
+    .pane.show .ss-step{animation:riseIn .5s cubic-bezier(.2,.7,.2,1) both}
+    .pane.show .ss-step:nth-child(2){animation-delay:.07s}
+    .pane.show .ss-step:nth-child(3){animation-delay:.14s}
+    .pane.show .ss-step:nth-child(4){animation-delay:.21s}
+  }
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.sec-head .uline{transform:none;transition:none}html{scroll-behavior:auto}}
   @media(max-width:560px){.wrap{padding:0 20px}.hero{padding:118px 0 60px}}
 </style>
 </head>

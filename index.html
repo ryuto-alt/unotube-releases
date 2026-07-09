@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>UnoTube — すべての動画を、もっと自由に。</title>
 <meta name="theme-color" content="#ffffff" />
-<link rel="icon" type="image/png" href="assets/unotube-icon.png" />
-<link rel="apple-touch-icon" href="assets/unotube-icon.png" />
-<meta name="description" content="UnoTube は YouTube Music と YouTube をまとめた自作プレイヤー。広告なしフル再生・予測変換つき検索・プレイリスト。Android (APK) / iOS (IPA・SideStore) 対応。" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<meta name="description" content="UnoTube は YouTube Music と YouTube をまとめた自作プレイヤー。広告なしフル再生・バックグラウンド再生・スポンサー自動スキップ・スリープタイマー。Android (APK) / iOS (IPA・SideStore) 対応。" />
 <meta property="og:title" content="UnoTube — すべての動画を、もっと自由に。" />
-<meta property="og:description" content="広告に邪魔されず最後まで再生。予測変換検索・プレイリスト。Android / iOS 対応の自作プレイヤー。" />
+<meta property="og:description" content="広告なし、画面を閉じても止まらない。スポンサー自動スキップつきの自作プレイヤー。Android / iOS 対応。" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://ryuto-alt.github.io/unotube-releases/assets/shot-home.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -108,7 +108,7 @@
 
   /* ===== FEATURES ===== */
   .features{padding:84px 0}
-  .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .feat{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:30px 24px;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s}
   .feat:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
   .feat .ic{width:60px;height:60px;margin:0 auto 18px;border-radius:16px;display:grid;place-items:center;background:var(--pink);color:var(--red)}
@@ -209,6 +209,8 @@
   .feat-grid .feat:nth-child(2){transition-delay:.08s}
   .feat-grid .feat:nth-child(3){transition-delay:.16s}
   .feat-grid .feat:nth-child(4){transition-delay:.24s}
+  .feat-grid .feat:nth-child(5){transition-delay:.32s}
+  .feat-grid .feat:nth-child(6){transition-delay:.40s}
   .steps3 > :nth-child(2){transition-delay:.10s}
   .steps3 > :nth-child(3){transition-delay:.18s}
   .steps3 > :nth-child(4){transition-delay:.26s}
@@ -246,7 +248,7 @@
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a class="logo" href="#top" style="--ms:36px;--ws:20px"><img class="mark" src="assets/unotube-icon.png" alt="" /><span class="word">UnoTube</span></a>
+    <a class="logo" href="#top" style="--ms:36px;--ws:20px"><img class="mark" src="assets/apple-touch-icon.png" alt="" /><span class="word">UnoTube</span></a>
     <nav class="nav-links">
       <a href="#top" class="active">ホーム</a>
       <a href="#features">機能</a>
@@ -264,11 +266,11 @@
   <div class="wrap hero-in">
     <div class="hero-copy">
       <div class="logo hero-lockup" style="--ms:84px">
-        <img class="mark" src="assets/unotube-icon.png" alt="" />
+        <img class="mark" src="assets/apple-touch-icon.png" alt="" />
         <span class="word">UnoTube</span>
       </div>
       <h1>すべての動画を、<span class="r">もっと自由に。</span></h1>
-      <p class="lead">YouTube Music と YouTube をまとめた自作プレイヤー。<br />広告に邪魔されず、最後まで再生できます。</p>
+      <p class="lead">YouTube Music と YouTube をまとめた自作プレイヤー。<br />広告なし。画面を閉じても、再生は止まりません。</p>
       <div class="store-row">
         <a class="store-btn" href="#guide">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.5 19 7a.4.4 0 0 0-.6-.4l-1.5 2.2a8 8 0 0 0-6.8 0L8.6 6.6A.4.4 0 0 0 8 7l1.4 2.5A7 7 0 0 0 6 15h12a7 7 0 0 0-3.4-5.5ZM9.5 13a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Zm5 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Z"/><rect x="6" y="14.4" width="12" height="6.6" rx="1.4"/></svg>
@@ -279,7 +281,7 @@
           <span class="t"><small>SideStore</small><b>iOS (IPA)</b></span>
         </a>
       </div>
-      <p class="hero-note">ストアを通さないサイドロード方式 ・ バージョン 1.3.0 ・ 常に最新</p>
+      <p class="hero-note">ストアを通さないサイドロード方式 ・ バージョン 1.4.0 ・ 常に最新</p>
     </div>
 
     <div class="hero-phone">
@@ -306,9 +308,19 @@
         <p>生ストリームを直接取得。途中で広告が挟まりません。</p>
       </div>
       <div class="feat reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg></div>
-        <h3>高速ストリーミング</h3>
-        <p>先読みと深いバッファで、弱い電波でも途切れにくく。</p>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.6"/><path d="M9 21.5V19a3 3 0 0 1 6 0v2.5" fill="none"/><path d="m10.6 9.2 4.4 2.6-4.4 2.6z" fill="currentColor" stroke="none"/></svg></div>
+        <h3>バックグラウンド再生</h3>
+        <p>画面を閉じても音はそのまま。通知から操作できます。</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 5 7 7-7 7"/><path d="m13 5 7 7-7 7"/></svg></div>
+        <h3>スポンサー自動スキップ</h3>
+        <p>動画内の宣伝パートを検知して、自動で飛ばします。</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 14.4A8.8 8.8 0 0 1 9.6 3.4a8.8 8.8 0 1 0 11 11Z"/></svg></div>
+        <h3>スリープタイマー</h3>
+        <p>指定時間や曲の終わりで自動停止。寝落ちしても安心。</p>
       </div>
       <div class="feat reveal">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M4 12h11M4 17h7"/><path d="m17 14 4 2.5-4 2.5z" fill="currentColor" stroke="none"/></svg></div>
@@ -370,7 +382,7 @@
         <span class="t"><small>SideStore</small><b>iOS (IPA)</b></span>
       </a>
     </div>
-    <p class="ver">VERSION 1.3.0 ・ 常に最新ビルドを配信</p>
+    <p class="ver">VERSION 1.4.0 ・ 常に最新ビルドを配信</p>
   </div>
 </section>
 
@@ -380,7 +392,7 @@
     <div class="sec-head reveal">
       <h2>ダウンロード</h2>
       <div class="uline"></div>
-      <p>お使いの端末を選んでください。バージョン 1.3.0。</p>
+      <p>お使いの端末を選んでください。バージョン 1.4.0。</p>
     </div>
 
     <div class="guide-card reveal">
@@ -402,7 +414,7 @@
             <span class="plat-ic"><svg viewBox="0 0 24 24" fill="#3DDC84"><path d="M6 18a1 1 0 0 0 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1a1 1 0 0 0 1-1V9H6v9ZM3.5 9A1.5 1.5 0 0 0 2 10.5v5a1.5 1.5 0 0 0 3 0v-5A1.5 1.5 0 0 0 3.5 9Zm17 0a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 3 0v-5A1.5 1.5 0 0 0 20.5 9ZM15.7 2.8 17 .9a.4.4 0 0 0-.6-.5L14.9 2.5a6.9 6.9 0 0 0-4.8 0L8.6.4a.4.4 0 0 0-.6.5l1.3 1.9A6.3 6.3 0 0 0 6 8h12a6.3 6.3 0 0 0-2.3-5.2ZM9.5 5.5a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4Zm5 0a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4Z"/></svg></span>
             <div>
               <h4>Android</h4>
-              <div class="specs">APK ・ 約 62 MB ・ Android 8.0+ ・ 常に最新</div>
+              <div class="specs">APK ・ 約 190 MB ・ Android 8.0+ ・ 常に最新</div>
             </div>
           </div>
           <a class="dl-go" href="https://github.com/ryuto-alt/unotube-releases/releases/latest/download/UnoTube.apk">
@@ -420,7 +432,7 @@
             <span class="plat-ic"><svg viewBox="0 0 24 24" fill="#16181C"><path d="M16.4 12.8c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8ZM14.2 5.6c.6-.8 1-1.9.9-3-1 0-2.1.6-2.8 1.4-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.5 2.9-1.3Z"/></svg></span>
             <div>
               <h4>UnoTube.ipa</h4>
-              <div class="specs">IPA ・ 約 10 MB ・ 常に最新 ・ SideStore で導入</div>
+              <div class="specs">IPA ・ 約 26 MB ・ 常に最新 ・ SideStore で導入</div>
             </div>
           </div>
           <a class="dl-go" href="https://github.com/ryuto-alt/unotube-releases/releases/latest/download/UnoTube.ipa">
@@ -461,7 +473,7 @@
 <footer>
   <div class="wrap foot-grid">
     <div class="foot-brand">
-      <a class="logo" href="#top" style="--ms:34px;--ws:20px"><img class="mark" src="assets/unotube-icon.png" alt="" /><span class="word">UnoTube</span></a>
+      <a class="logo" href="#top" style="--ms:34px;--ws:20px"><img class="mark" src="assets/apple-touch-icon.png" alt="" /><span class="word">UnoTube</span></a>
       <p>すべての動画を、もっと自由に。YouTube Music と YouTube をひとつにした自作プレイヤー。</p>
     </div>
     <div class="foot-col">

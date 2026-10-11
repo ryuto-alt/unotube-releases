@@ -92,6 +92,9 @@ pre{padding:4px 16px 16px;font-size:12px;line-height:1.6;color:var(--sub);white-
 footer{padding:36px 0 48px;border-top:1px solid var(--surf);font-size:13px;color:var(--sub);text-align:center}
 footer a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
 footer p+p{margin-top:6px}
+footer .legal{font-size:11px;opacity:.7;margin-top:14px}
+footer details.legal summary{cursor:pointer;display:inline-block}
+footer details.legal pre{text-align:left;white-space:pre-wrap;font-size:10px;margin:10px auto 0;max-width:640px}
 @media(min-width:720px){
   header nav{display:flex}
   .hero{padding:80px 0 90px}
@@ -105,7 +108,7 @@ footer p+p{margin-top:6px}
 <body>
 <header><div class="wrap">
   <a class="logo" href="#"><img src="assets/icon-512.png" alt="" /><b>UnoTube</b></a>
-  <nav><a href="#features">できること</a><a href="#install">入れ方</a><a href="#faq">FAQ</a><a href="#license">ライセンス</a></nav>
+  <nav><a href="#features">できること</a><a href="#install">入れ方</a><a href="#faq">FAQ</a></nav>
   <a class="btn sm" href="https://github.com/ryuto-alt/unotube-releases/releases/latest/download/UnoTube.apk">APK</a>
 </div></header>
 
@@ -115,7 +118,7 @@ footer p+p{margin-top:6px}
     <h1><span class="grad">UnoTube</span></h1>
     <p class="lead">広告もショートも無い、<br>自分好みの YouTube。</p>
     <a class="btn" href="https://github.com/ryuto-alt/unotube-releases/releases/latest/download/UnoTube.apk">APK をダウンロード</a>
-    <p class="meta">v2.0.0 · YouTube 21.40.161 ベース · Android 12L 以降 (arm64) · 約 126MB</p>
+    <p class="meta">v2.0.1 · YouTube 21.40.161 ベース · Android 12L 以降 (arm64) · 約 126MB</p>
   </div>
   <div class="phone" aria-hidden="true">
     <div class="bar"><span class="t"><i>▶</i> UnoTube</span><span class="pill"></span></div>
@@ -161,18 +164,16 @@ footer p+p{margin-top:6px}
   <details class="faq"><summary>ログインできません</summary><div class="a">MicroG-RE が入っているか確認してください。入れたあとで UnoTube を開き直すと通ることが多いです。</div></details>
   <details class="faq"><summary>iPhone でも使えますか？</summary><div class="a">使えません。Android のみです。</div></details>
   <details class="faq"><summary>古いスマホ (32bit) でも動きますか？</summary><div class="a">動きません。arm64 の端末が対象です。</div></details>
-  <details class="faq"><summary>公式の Morphe とは違うの？</summary><div class="a">別物です。UnoTube は Morphe Patches をもとにした非公式の改造版で、公式とは関係ありません。くわしくは下の「ライセンスとソース」を見てください。</div></details>
-  <details class="faq"><summary>安全ですか？</summary><div class="a">改造部分のソースは公開しています。気になる人は自分でビルドもできます。</div></details>
+    <details class="faq"><summary>安全ですか？</summary><div class="a">改造部分のソースは公開しています。気になる人は自分でビルドもできます。</div></details>
 </div></section>
 
-<section id="license" class="alt"><div class="wrap">
-  <h2>ライセンスとソース</h2>
-  <p class="sec-sub"></p>
-  <div class="lic">
-    <p>UnoTube は Morphe Patches (<a href="https://github.com/MorpheApp/morphe-patches">https://github.com/MorpheApp/morphe-patches</a>, GPLv3) をもとにした非公式の改造版です。Morphe 公式とは関係ありません。</p>
-    <p>改造部分のソース (GPLv3): <a href="https://github.com/ryuto-alt/unotube-src">https://github.com/ryuto-alt/unotube-src</a></p>
-    <p class="small">YouTube は Google LLC の商標です。UnoTube は Google とは関係ありません。</p>
-    <details class="notice" open><summary>Morphe NOTICE</summary>
+</main>
+
+<footer><div class="wrap">
+  <p>© 2026 ryuto-alt · <a href="https://github.com/ryuto-alt/unotube-releases/releases">Releases</a></p>
+  <p>以前の Flutter 版 (v1.x) も Releases ページに残してあります。</p>
+  <p class="legal">UnoTube は <a href="https://github.com/MorpheApp/morphe-patches">Morphe Patches</a> (GPLv3) をもとにした非公式の改造版です · <a href="https://github.com/ryuto-alt/unotube-src">ソース</a> · YouTube は Google LLC の商標です</p>
+  <details class="legal"><summary>NOTICE</summary>
 <pre>Morphe NOTICE
 
 https://github.com/MorpheApp/morphe-patches
@@ -202,14 +203,7 @@ GPLv3 Section 7e: Declining Grant of Trademark Rights
 This License does not grant any rights or permission under trademark law
 to use the name "Morphe" or any of the Program's trade names, trademarks,
 service marks, or logos.</pre>
-    </details>
-  </div>
-</div></section>
-</main>
-
-<footer><div class="wrap">
-  <p>© 2026 ryuto-alt · <a href="https://github.com/ryuto-alt/unotube-releases/releases">Releases</a></p>
-  <p>以前の Flutter 版 (v1.x) も Releases ページに残してあります。</p>
+  </details>
 </div></footer>
 </body>
 </html>
